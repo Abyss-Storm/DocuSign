@@ -1,0 +1,23 @@
+<section id="uploadDoc">
+<h2>Upload and Sign a Document</h2>
+<input type="file" accept=".pdf" (change)="onFileSelect($event)" />
+
+@if (fileUrl) {
+  <div style="position: relative; width: 100%; height: 600px;">
+    <!-- PDF Preview -->
+    <iframe #pdfFrame [src]="fileUrl" width="100%" height="600px" style="border: 1px solid #ccc;"></iframe>
+
+    <!-- Transparent Canvas for Signature Placement -->
+    <canvas #overlayCanvas
+      width="800"
+      height="600"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: crosshair; background: transparent;">
+    </canvas>
+  </div>
+
+  <p>Draw your signature:</p>
+  <app-digital-signature #digiSign></app-digital-signature>
+
+  <button (click)="addSignatureToPdf()">Sign and Download PDF</button>
+}
+</section>
