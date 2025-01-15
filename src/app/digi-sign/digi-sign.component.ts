@@ -18,11 +18,6 @@ export class DigiSignComponent implements AfterViewInit {
     const canvas = this.signaturePad.nativeElement;
     this.context = canvas.getContext('2d')!;
 
-    // Set canvas background to white
-    // this.context.fillStyle = '#FFFFFF';
-    // this.context.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Pen properties
     this.context.strokeStyle = '#000000';
     this.context.lineWidth = 2;
 
@@ -53,8 +48,6 @@ export class DigiSignComponent implements AfterViewInit {
   clearCanvas(): void {
     const canvas = this.signaturePad.nativeElement;
     this.context.clearRect(0, 0, canvas.width, canvas.height);
-    // this.context.fillStyle = '#FFFFFF';
-    // this.context.fillRect(0, 0, canvas.width, canvas.height);
   }
 
   getSignature(): string {
